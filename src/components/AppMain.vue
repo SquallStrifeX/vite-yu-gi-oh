@@ -1,6 +1,14 @@
 <script>
+import { store } from '../store.js';
+
 export default {
-    name: 'AppMain'
+  name: 'AppMain',
+  
+  data() {
+    return {
+      store
+    }
+  }
 }
 </script>
 
@@ -9,13 +17,13 @@ export default {
     <div>
      <div class="container container_main p-5">
         <div class="row">
-            <div class="col-2 ">
-                fvdfvfdv
+            <div class="col-2" v-for="(card, index) in store.cardList" :key="index">
+              {{card.name}}
+                
             </div>
-
+</div>
         </div>
      </div>
-    </div>
 </main>
 </template>
 
