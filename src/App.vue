@@ -17,10 +17,8 @@ export default {
   },
   methods: {
     getCardList(){
-      axios.get(this.store.endpoint).then((response) => {
-        console.log(response.data.results)
-        this.store.cardList = response.data.results
-        console.log('Contenuto di cardList:', this.store.cardList);
+      axios.get(store.endpoint).then((response) => {
+        this.store.cardList = response.data.data
       })
 
     },
