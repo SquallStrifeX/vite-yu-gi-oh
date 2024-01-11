@@ -20,12 +20,17 @@ export default {
   },
   methods: {
     getCardList(){
+   let ApiUrl = store.endpoint
+    console.log(this.store.archetype)
+    if(store.archetype == ''){
 
-let ApiUrl = store.endpoint
 
-ApiUrl += `?archetype=${store.archetipo.archetype_name}`;
+console.log(ApiUrl)}
+else{
+  ApiUrl = `https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=${store.archetype}&num=100&offset=0`
+}
 
-      axios.get(store.endpoint).then((response) => {
+      axios.get(ApiUrl).then((response) => {
         this.store.cardList = response.data.data
       })
 
