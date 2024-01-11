@@ -1,8 +1,12 @@
 <script>
 import { store } from '../store.js';
+import CharacterCard from '../components/CharacterCard.vue'
 
 export default {
   name: 'AppMain',
+  components:{
+    CharacterCard
+  },
   
   data() {
     return {
@@ -17,15 +21,7 @@ export default {
     <div>
      <div class="container container_main pt-5 pb-5 ">
         <div class="row">
-            <div class="col-2 nome_card p-0 mt-5" v-for="(card, index) in store.cardList" :key="index">
-              <img class="img" v-for="card in card.card_images" :src="card.image_url" alt="">
-              <div class=" m-3"> 
-                <div >{{card.name}}</div> 
-                <div class="archetype m-3">{{card.archetype}}</div> 
-              </div>
-             
-                
-            </div>
+            <CharacterCard v-for="(card, index) in store.cardList" :key="index" :card="card" :index="index" ></CharacterCard>
 </div>
         </div>
      </div>
@@ -46,22 +42,7 @@ main {
     }
 }
 
-.img{
-  max-width: 100%;
 
-}
 
-.nome_card{
-  background-color: sandybrown;
-  text-align: center;
-  color: white;
-  font-size: 15px;
-  margin: 10px;
-  width: calc(20% - 20px);
-  .archetype{
-    color: black;
-    
-  }
-}
-    
+
 </style>
